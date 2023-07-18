@@ -3,6 +3,7 @@ import os
 import csv
 
 csvpath = os.path.join("Resources","budget_data.csv")
+output_file = "output.txt"
 
 with open(csvpath) as csvfile:
     
@@ -49,8 +50,17 @@ with open(csvpath) as csvfile:
     average_change = total_changes/(rowcount-1) if rowcount>1 else 0
 
 # Final script should both print the analysis to the terminal and export a text file with the results
-
-
+    output = f"Total number of line items: {rowcount}\n"
+    output += f"Net total amount of 'profit/losses' over the entire period: ${net_total}\n"
+    output += f"Changes in 'profit/losses' over the entire period: ${total_changes}\n"
+    output += f"Average change in 'profit/losses' over the entire period: ${average_change:.2f}\n"
+    output += f"Greatest increase in profits: {greatest_increase_month} (${greatest_increase})\n"
+    output += f"Greatest decrease in profits: {greatest_decrease_month} (${greatest_decrease})\n"
+    with open(output_file,"w") as file:
+            file.write(output)
+    
+    print("Results exportes to 'output.txt'")
+    
     print(f"Number of months:{rowcount}")
     print(f"Net Total amount of profit/Losses: ${net_total}") 
     print(f"Changes in profit/loss: ${total_changes}")   
