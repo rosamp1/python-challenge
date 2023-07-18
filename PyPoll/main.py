@@ -9,10 +9,16 @@ with open(csvpath) as csvfile:
     
     csvreader = csv.reader(csvfile, delimiter=',')
     csv_header = next(csvreader)
-    print(csv_header)
+
+
+# The total number of votes cast
+    rowcount = 0
+    
 
     for row in csvreader:
-        print(row)
+        rowcount += 1
+
+    print(f"Total number of votes:{rowcount}")
 
 
 
