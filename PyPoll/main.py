@@ -1,4 +1,4 @@
-# Followed Instructor led content and used Chat GPT for further assitance
+# Followed Instructor led content and used Chat GPT for further assistance
 import os
 import csv
 
@@ -15,7 +15,7 @@ with open(csvpath) as csvfile:
 
     for row in csvreader:
         rowcount += 1
-        candidate = row[2]  # Assuming column C is for candidates
+        candidate = row[2]  
         votes_per_candidate[candidate] = votes_per_candidate.get(candidate, 0) + 1
 
     total_votes = sum(votes_per_candidate.values())
@@ -28,7 +28,7 @@ with open(csvpath) as csvfile:
         file.write("-------------------------\n")
         file.write("Candidates who received votes:\n")
 
-# percentafe of votes and total number of votes , print winner
+# percentage of votes and total number of votes , print winner
 
         for candidate, votes in votes_per_candidate.items():
             vote_percentage = (votes / total_votes) * 100
